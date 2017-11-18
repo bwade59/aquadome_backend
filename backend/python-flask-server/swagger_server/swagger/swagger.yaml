@@ -1,0 +1,103 @@
+---
+swagger: "2.0"
+info:
+  description: "Control and monitoring of aquaponics system."
+  version: "1.0.0"
+  title: "Aquadome"
+host: "turnover-cat-2879.dataplicity.io"
+basePath: "/v1"
+schemes:
+- "https"
+produces:
+- "application/json"
+paths:
+  /status:
+    get:
+      tags:
+      - "Status"
+      summary: "Status"
+      description: "The overall health of the system.\n"
+      operationId: "status_get"
+      parameters:
+      - name: "pump1"
+        in: "query"
+        description: "Pump 1 operation status."
+        required: true
+        type: "boolean"
+      - name: "pump2"
+        in: "query"
+        description: "Pump 2 operation status."
+        required: true
+        type: "boolean"
+      - name: "air_heater"
+        in: "query"
+        description: "Ambient heater operation."
+        required: true
+        type: "boolean"
+      - name: "fan"
+        in: "query"
+        description: "Fan operation."
+        required: true
+        type: "boolean"
+      - name: "water_heater"
+        in: "query"
+        description: "Water heater operation."
+        required: true
+        type: "boolean"
+      - name: "feeder"
+        in: "query"
+        description: "Feeder operation."
+        required: true
+        type: "boolean"
+      responses:
+        200:
+          description: "Status of aquaponics system."
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/Status"
+        default:
+          description: "Unexpected error"
+          schema:
+            $ref: "#/definitions/Error"
+      x-swagger-router-controller: "swagger_server.controllers.status_controller"
+definitions:
+  Status:
+    type: "object"
+    properties:
+      id:
+        type: "integer"
+        format: "int32"
+      pump1:
+        type: "boolean"
+      pump2:
+        type: "boolean"
+      water_heater:
+        type: "boolean"
+      fan:
+        type: "boolean"
+      air_temp:
+        type: "integer"
+        format: "float"
+      air_heater:
+        type: "boolean"
+      water_temp:
+        type: "integer"
+        format: "float"
+      water_ph:
+        type: "integer"
+        format: "float"
+      feeder:
+        type: "boolean"
+      last_feeding:
+        type: "string"
+  Error:
+    type: "object"
+    properties:
+      code:
+        type: "integer"
+        format: "int32"
+      message:
+        type: "string"
+      fields:
+        type: "string"

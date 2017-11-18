@@ -1,0 +1,25 @@
+<component name="ProjectDictionaryState">
+  <dictionary name="bwade">
+    <words>
+      <w>airheater</w>
+      <w>aquadome</w>
+      <w>dbclient</w>
+      <w>fishtank</w>
+      <w>getfanstate</w>
+      <w>getheatstate</w>
+      <w>getph</w>
+      <w>gettemp</w>
+      <w>growbed</w>
+      <w>newph</w>
+      <w>newstate</w>
+      <w>newtemp</w>
+      <w>setfanstate</w>
+      <w>setheatstate</w>
+      <w>setph</w>
+      <w>settemp</w>
+      <w>sumptank</w>
+      <w>togglefan</w>
+      <w>waterheater</w>
+    </words>
+  </dictionary>
+</component>
